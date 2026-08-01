@@ -1,0 +1,186 @@
+.col-ingreso {
+    border-right: 3px solid #6c757d;
+    padding-right: 1.5rem;
+}
+
+.col-lista {
+    padding-left: 1.5rem;
+}
+
+.titulo-tarjeta {
+    color: #3e2481;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.375rem;
+    border-bottom: 3px solid #e9ecef;
+}
+
+/* en resoluciones menores a 767px el listado queda debajo del ingreso de datos */
+@media (max-width: 767px) {
+
+    .col-ingreso,
+    .col-lista {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .col-ingreso {
+        border-right: none;
+        border-bottom: 3px solid #6c757d;
+        padding-right: 0.75rem;
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .col-lista {
+        padding-left: 0.75rem;
+    }
+}
+
+#lista-usuarios {
+    max-height: calc(8 * 80px + 7 * 0.75rem);
+    /*8 tarjetas de 80px (en realidad son de 77px) + 7 espacios con separacion de 0.75rem */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-right: 0.5rem;
+}
+
+/* Modificacion del diseño del scrollbar*/
+#lista-usuarios::-webkit-scrollbar {
+    width: 6px;
+}
+
+#lista-usuarios::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+#lista-usuarios::-webkit-scrollbar-thumb {
+    background: #2A1859;
+    border-radius: 3px;
+}
+
+.tarjeta-panel {
+    border: none;
+}
+
+/* Animacion para cuando agrego usuario*/
+@keyframes animarNuevaTarjeta {
+    0% {
+        background-color: #e8e5f2;
+        transform: scale(1.02);
+    }
+
+    100% {
+        background-color: #fff;
+        transform: scale(1);
+    }
+}
+
+.tarjeta-nueva {
+    animation: animarNuevaTarjeta 1.5s ease-out;
+}
+
+.tarjeta-usuario {
+    border: 3px solid #2A1859;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+.tarjeta-usuario .card-body {
+    padding: 0.75rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25rem 1rem;
+    min-width: 0;
+}
+
+/* en resoluciones menores a 1040 hago que la tarjeta sea de solo una columna*/
+@media (max-width: 1040px) {
+    .tarjeta-usuario .card-body {
+        grid-template-columns: 1fr;
+    }
+}
+
+.tarjeta-usuario .campo {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    min-width: 0;
+    max-width: 100%;
+    display: flex;
+    color: #3b1c78;
+    font-family: Verdana, sans-serif;
+    font-weight: 600;
+}
+
+.tarjeta-usuario .campo-label {
+    font-weight: 600;
+    margin-right: 0.375rem;
+    flex-shrink: 0;
+}
+
+.tarjeta-usuario .campo-valor {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.tarjeta-usuario .campo-valor.email {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/*Este serai un caso extremo en que la pantalla sea muy chica*/
+@media(max-width: 330px) {
+    .tarjeta-usuario .campo {
+        flex-direction: column;
+    }
+
+    .tarjeta-usuario .campo-label {
+        margin-right: 0;
+    }
+}
+
+.logo-principal {
+    max-width: 200px;
+    height: auto;
+}
+
+.form-label-custom {
+    color: #2b1659;
+    font-family: sans-serif;
+    font-weight: 600;
+    white-space: nowrap;
+
+}
+
+.btn-enviar {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #3b2081;
+    --bs-btn-border-color: #2b195b;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #4e2aa8;
+    --bs-btn-hover-border-color: #2A1859;
+
+    --bs-btn-focus-shadow-rgb: 42, 24, 89;
+
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #4e2aa8;
+    --bs-btn-active-border-color: #2A1859;
+    padding: 0.375rem 2rem;
+}
+
+.form-control {
+    border: 3px solid #cccaca;
+    border-radius: 4px;
+}
+
+.form-control:focus {
+    border-color: #2A1859;
+    box-shadow: 0 0 0 0.2rem #645979;
+}
